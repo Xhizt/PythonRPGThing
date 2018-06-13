@@ -3,6 +3,8 @@ import pygame
 import time
 import Values
 import Menu
+import winsound
+import pdb
 
 def standby():
     if (Values.EnemyHP == 0):
@@ -13,9 +15,9 @@ def standby():
 
 def TestUserInput(input):
     if input.lower() == "a":
+
         pygame.mixer.init()
         pygame.mixer.Sound("Sounds\Damage.wav").play()
-        time.sleep(0.5)
 
         Values.EnemyHP = Values.EnemyHP - (Values.PlayerATT - Values.EnemyDEF)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -71,5 +73,8 @@ def GameOver():
     print
     print
     print
-    print ("    You win!")
+    print ("    You win!\n\n")
+    winsound.PlaySound(None, winsound.SND_PURGE)
+    winsound.PlaySound("Sounds\Victory.wav", winsound.SND_FILENAME | winsound.SND_ASYNC)
+    time.sleep(2)
     raw_input()
