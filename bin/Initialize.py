@@ -3,7 +3,11 @@ import winsound
 import Math
 import Menu
 
-winsound.PlaySound("Sounds\Battle.wav", winsound.SND_ASYNC | winsound.SND_LOOP)
+# Christian Tavares | 6/14/2018 | RPGThing |
+#
+# This class is used like a Main class. It all begins here.
+
+winsound.PlaySound("Sounds\Battle.wav", winsound.SND_FILENAME | winsound.SND_ASYNC | winsound.SND_LOOP)
 os.system('cls' if os.name == 'nt' else 'clear')
-Menu.initialize()
-Math.standby()
+Menu.initialize() #Create Menu
+Math.standby()    #Await user input
